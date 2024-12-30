@@ -3,7 +3,7 @@ import express from 'express';
 import config from './config.js';
 
 // Import routes
-import enruter from './Rest/Routes/routes.js';
+import enruter from './src/modules/client/routes.js';
 
 // Initialize the app and set the port
 const app = express();
