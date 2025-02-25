@@ -1,25 +1,82 @@
-<html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Store</title>
-        <link rel="stylesheet" href="{% static 'login/style.css' %}">
-    </head>
-    <body>
-        <main>
-            <div class="contenedor">
-                <div class="backBox">
-                    <h3>¿tenei cuenta?</h3>
-                    <p>Inicar sesion</p>
-                    <bu
-                
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width initial-scale1.0">
+    <link rel="stylesheet" href="{% static 'login/style.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>login y registro</title>
+</head>
+
+<body>
+    <a href="{% url 'home' %}" class="backButton">Volver</a>
+
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form method="post">
+                {% csrf_token %}
+                <h1>Crear cuenta</h1>
+                <div class="social-icons">
+                    <a href="#" class="icons"><i class='bx bxl-google'></i></a>
+                    <a href="#" class="icons"><i class='bx bxl-facebook'></i></a>
+                    <a href="#" class="icons"><i class='bx bxl-instagram'></i></a>
+                    <a href="#" class="icons"><i class='bx bxl-twitter'></i></a>
+                </div>
+                <span>Registrate</span>
+                <input type="hidden" value="register" name="type">
+                <input type="text" placeholder="Nombre" name="name">
+                <input type="email" placeholder="Correo" name="email">
+                <input type="password" placeholder="Contraseña" name="password">
+                <button>Registrarse</button>
+                {% if message %}
+                    <h3 class="message">{{ message }}</h3>
+                {% elif error %}
+                    <h3 class="error">{{ error }}</h3>
+                {% endif %}
+
+            </form>
+        </div>
 
 
+        <div class="form-container sign-in">
+            <form method="post">
+                {% csrf_token %}
+                <h1>Iniciar Sesion</h1>
+                <div class="social-icons">
+                    <a href="#" class="icons"><i class='bx bxl-google'></i></a>
+                    <a href="#" class="icons"><i class='bx bxl-facebook'></i></a>
+                    <a href="#" class="icons"><i class='bx bxl-instagram'></i></a>
+                    <a href="#" class="icons"><i class='bx bxl-twitter'></i></a>
+                </div>
+                <span>Inicia con tu correo y Contraseña</span>
+                <input type="hidden" value="login" name="type">
+                <input type="email" placeholder="Correo" name="email">
+                <input type="password" placeholder="Contraseña" name="password">
+                <a href="#">Olvide mi contraseña</a>
+                <button>Iniciar sesion</button>
+            </form>
+        </div>
 
-        </main>
-        
-    </body>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Bienvenido a<br>EverClothes</h1>
+                    <p>Iniciar con correo y contraseña</p>
+                    <button class="hidden" id="login">Iniciar sesion</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>pimba</h1>
+                    <p>pumba</p>
+                    <button class="hidden" id="register">Registrarse</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <script src="{% static 'home/script.js' %}"></script>
-</html>
+    <script src="{% static 'login/script.js' %}"></script>
 
+</body>
+
+</html>u

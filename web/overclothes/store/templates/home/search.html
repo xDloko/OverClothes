@@ -1,0 +1,74 @@
+{% load static %}
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Store</title>
+        <link rel="stylesheet" href="{% static 'home/search.css' %}">
+    </head>
+    <body>
+        <header class="header">
+            <div class="menu container">
+                <a href="{% url 'home' %}">Logo</a>
+                {% if token %}
+                    <a href="{% url 'profile' %}">Perfil</a>
+                {% else %}
+                    <a href="{% url 'login' %}">Iniciar Sesión</a>
+                {% endif %}
+                <input type="checkbox" id="menu">
+                <label for="menu">
+                    <img src="{% static 'home/images/menu.png' %}" class="menu-icono" alt="Icon Menu">
+                </label>
+                <nav class="navbar">
+                    <ul>
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li><a href="javascript:void(0);" id="mostrar-categorias">Categorias</a></li>
+                        <li><a href="#">Ofertas</a></li>
+                        <li><a href="#">Contacto</a></li>
+                        <li><a href="#">Deseas Vender?</a></li>
+                    </ul>
+                </nav>
+
+                <div>
+                    <ul>
+                        <li class="submenu">
+                            <h3 id="img-carrito">Categorias</h3>
+                            <div id="carrito">
+                                <table id="lista-carrito">
+                                    {% for cat in categorias %}
+                                        <li><a href="{% url 'categoria_detalle' cat %}">{{ cat }}</a></li>
+                                    {% endfor %}
+                                </table>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <ul>
+                        <li class="submenu">
+                            <img src="{% static 'home/images/shop-cart.png' %}" id="img-carrito" alt="Carrito">
+                            <div id="carrito">
+                                <table id="lista-carrito">
+                                    <thead>
+                                        <tr>
+                                            <th>Imagen</th>
+                                            <th>Nombre</th>
+                                            <th>Cantidad</th>
+                                            <th>Precio</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                                <a href="#" id="vaciar-carrito" class="btn-2">Vaciar</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+            </div>
+        </header>
+       <section>
+        {% block content %}
+        {% endblock %}
+       </section>

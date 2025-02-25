@@ -3,7 +3,7 @@ import express from 'express';
 import config from './config.js';
 
 // Import routes
-import enruter from './src/modules/client/routes.js';
+import enruterClient from './src/modules/client/routes.js';
 
 // Initialize the app and set the port
 const app = express();
@@ -11,7 +11,7 @@ app.use(express.json())
 app.set('port', config.app.port)
 
 //Routes
-app.use('/Prave', enruter)
+app.use('/OverClothes', enruterClient)
 
 //export to index
 export default app;

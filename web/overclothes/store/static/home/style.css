@@ -104,14 +104,13 @@ img {
 
 .submenu img:hover::before {
     transform: scaleX(1);
-  }
-
-.submenu #carrito {
-    display: none;
 }
 
-.submenu:hover #carrito {
-    display: block;
+.submenu #carrito {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-10px); 
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
     position: absolute;
     right: 0;
     backdrop-filter: blur(10px);
@@ -120,6 +119,18 @@ img {
     background-color: #4e4b5076;
     padding: 20px;
     min-width: 400px;
+    min-height: 150px;
+}
+
+.submenu:hover #carrito {
+    visibility: visible; 
+    opacity: 1; 
+    transform: translateY(0); 
+}
+
+#vaciar-carrito {
+    bottom: 10%;
+    position: absolute;
 }
 
 table {
@@ -373,6 +384,22 @@ th, td {
     margin-bottom: 10px;
 }
 
+/**
+.footer-social {
+    margin: 20px 0;
+}
+
+.footer-social a {
+    border: 1px solid #ccc;
+    border-radius: 20%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 3px;
+    width: 40px;
+    height: 40px;
+}
+**/
 
 
 @media (max-width: 991px) {
@@ -500,5 +527,7 @@ th, td {
         flex-direction: column;
         align-items: center;
     }
+
+
 
 }

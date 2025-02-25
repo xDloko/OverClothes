@@ -1,0 +1,128 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'profile/style.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Mi Perfil</title>
+    
+</head>
+<body>
+
+    <header class="header">
+        <div class="menu container">
+            <a href="{% url 'home' %}">Logo</a>
+            {% if token %}
+                <a href="{% url 'logout' %}">Cerrar Sesion</a>
+            {% else %}
+                <a href="{% url 'login' %}">Iniciar Sesión</a>
+            {% endif %}
+            <input type="checkbox" id="menu">
+            <label for="menu">
+                <img src="{% static 'home/images/menu.png' %}" class="menu-icono" alt="Icon Menu">
+            </label>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'search' %}">Categorias</a></li>
+                    <li><a href="#">Ofertas</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#">Deseas Vender?</a></li>
+                </ul>
+            </nav>
+            <div>
+                <ul>
+                    <li class="submenu">
+                        <img src="{% static 'home/images/shop-cart.png' %}" id="img-carrito" alt="Carrito">
+                        <div id="carrito">
+                            <table id="lista-carrito">
+                                <thead>
+                                    <tr>
+                                        <th>Imagen</th>
+                                        <th>Nombre</th>
+                                        <th>Cantidad</th>
+                                        <th>Precio</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                            <a href="#" id="vaciar-carrito" class="btn-2">Vaciar</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    </header>
+
+    <div class="containerP">
+        <div class="leftbox">
+            <nav>
+                <a onclick="tabs(0)"
+                class="tab active">
+                    <i class="fa fa-user"></i>
+                </a>
+                <a onclick="tabs(1)"
+                class="tab">
+                    <i class="fa fa-credit-card"></i>
+                </a>
+                <a onclick="tabs(2)"
+                class="tab">
+                    <i class="fa fa-tv"></i>
+                </a>
+                <a onclick="tabs(3)"
+                class="tab">
+                    <i class="fa fa-tasks"></i>
+                </a>
+                <a onclick="tabs(4)"
+                class="tab">
+                    <i class="fa fa-cog"></i>
+                </a>
+            </nav>
+        </div>
+        <div class="rightbox">
+            <div class="profile tabShow">
+                <h1>Infromacion Personal</h1>
+                <h2>Nombre Completo</h2>
+                <input type="text"
+                class="input">
+                <h2>Fecha de nacimiento</h2>
+                <input type="text"
+                class="input">
+                <h2>Correo</h2>
+                <input type="text"
+                class="input">
+                <h2>Contraseña</h2>
+                <input type="text"
+                class="input">
+                <button
+                class="btn">Actualizar</button>
+            </div>
+            
+        </div>
+    </div>
+
+
+    <script>
+        const tabBtn =
+        document.querySelectorAll(".tab");
+        const tab =
+        document.querySelectorAll(".tabShow");
+
+        function tabs(panelIndex) {
+            tab.forEach(function(node){
+                node.style.display = "none"
+            });
+            tab[panelIndex].style.display = "block";
+        }
+        tabs(0);
+    </script>
+    <script>
+        $(".tab").click(function() {
+            $(this).addClass("active").siblings().removeClass("active");
+        })
+    
+    </script>
+</body>
+</html>

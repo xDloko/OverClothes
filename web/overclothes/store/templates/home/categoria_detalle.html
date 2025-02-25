@@ -1,0 +1,20 @@
+{% extends "home/search.html" %}
+
+{% block content %}
+    <h1>{{ categoria.nombre }}</h1>
+    <p>{{ categoria.descripcion }}</p>
+    
+    <h2>Productos en esta categoría:</h2>
+    <div class="productos">
+        {% for producto in productos %}
+            <div class="producto">
+                <h3>{{ producto.nombre }}</h3>
+                <p>{{ producto.descripcion }}</p>
+                <p>Precio: ${{ producto.precio }}</p>
+                <p>Stock: {{ producto.stock }}</p>
+            </div>
+        {% empty %}
+            <p>No hay productos en esta categoría.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

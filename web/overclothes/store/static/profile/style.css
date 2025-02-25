@@ -1,0 +1,329 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:400,900|Montserrat|Roboto");
+
+body {
+    background: linear-gradient(to right,#f7fefa,rgb(93, 93, 93));
+    overflow-x: hidden;
+}
+
+.containerP {
+    background: #fff;
+    width: 540px;
+    height: 450px;
+    margin: 0 auto;
+    position: relative;
+    margin-top: 10%;
+    box-shadow: 2px 5px 20px rgba(119,119,119,.5);
+    border: .1em solid #fff;
+
+}
+
+.leftbox {
+    float: left;
+    top: -5%;
+    left: 5%;
+    position: absolute;
+    width: 15%;
+    height: 110%;
+    background: #000000;
+    box-shadow: 3px 3px 10px rgba(119,119,119,.5);
+    border: .1em solid #fff;
+}
+
+nav a {
+    list-style: none;
+    padding: 35px;
+    color: #fff;
+    font-size: 1.1em;
+    display: block;
+    transition: all .3s ease-in-out;
+
+}
+
+nav a:hover {
+    color: #10ac84;
+    cursor: pointer;
+    transform: scale(1.2);
+
+}
+
+nav a:first-child {
+    margin-top: 7px;
+
+}
+
+/* nav a.active {
+    color: #10ac84;
+} color del icono activo*/
+
+.rightbox {
+    width: 60%;
+    margin-left: 27%;
+    padding-top: 5px;
+}
+
+.tabShow {
+    transition: all .5s ease-in;
+    width: 80%;
+}
+
+h1 {
+    font-family: "Montserrat", sans-serif;
+    color: rgb(7, 7, 7);
+    font-size: 1.2rem;
+    margin-top: 40px;
+    margin-bottom: 35px;
+}
+h2 {
+    color: #777;
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    font-size: 8px;
+    letter-spacing: 1px;
+    margin-left: 2px;
+    margin-top: 10px;
+
+}
+
+.input, p {
+    border: 0;
+    border-bottom: 1px solid #10ac84;
+    width: 80%;
+    font-family: "Montserrat", sans-serif;
+    font-size: .7em;
+    padding: 7px 0;
+    color: #070707;
+    outline: none;
+}
+
+span {
+    font-size: .7em;
+    color:#777
+}
+
+.btn {
+    font-family: "Roboto" sans-serif;
+    text-transform: uppercase;
+    font-size: 15px;
+    border: 0;
+    color: #fff;
+    background: #050505fa;
+    padding: 7px 15px;
+    box-shadow: 0px 2px 4px 0px rgba(5, 254, 175, 0.238);
+    cursor: pointer;
+    margin-top: 15px;
+    transform: scale(1.2);
+    border: .1em solid #fff;
+    transition: all .3s ease-in-out;
+}
+
+.tabShow {
+    display: none;
+}
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+
+}
+
+img {
+    max-width: 100%;
+
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    background-color: #f5f5f5;
+    padding: 35px 0;
+}
+
+.menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.logo {
+    font-size: 25px;
+    color: #111111;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.menu .navbar ul li {
+    position: relative;
+    float: left;
+}
+
+.menu .navbar ul li a {
+    font-size: 18px;
+    padding: 20px;
+    color: #111111;
+    display: block;
+}
+
+#menu {
+    display: none;
+
+}
+
+.menu-icono{
+    width: 25px;
+
+}
+
+.menu label {
+    cursor: pointer;
+    display: none;
+}
+
+.submenu {
+    position: relative;
+
+}
+
+.submenu img {
+    position: relative;
+    width: 45px;
+}
+
+.submenu img::before {
+    content: ’’;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(to right, #b47dcd, #e878a2, #eb85ab);
+  z-index: 1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease-in-out;
+}
+
+.submenu img:hover::before {
+    transform: scaleX(1);
+  }
+
+  .submenu #carrito {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-10px); 
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    position: absolute;
+    right: 0;
+    backdrop-filter: blur(10px);
+    top: 100%;
+    z-index: 1;
+    background-color: #4e4b5076;
+    padding: 20px;
+    min-width: 400px;
+    min-height: 150px;
+}
+
+.submenu:hover #carrito {
+    visibility: visible; 
+    opacity: 1; 
+    transform: translateY(0); 
+}
+
+#vaciar-carrito {
+    bottom: 10%;
+    position: absolute;
+}
+
+table {
+    width: 100%;
+}
+
+th, td {
+    color: #ffffffff;
+}
+
+.borrar {
+    background-color: #111111;
+    border-radius: 56%;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #ffffffff;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    padding: 0 200px;
+
+}
+
+.header-img {
+    flex-basis: 50%;
+    text-align: center;
+}
+
+.header-txt {
+    flex-basis: 50%;
+    text-align: center;
+    
+}
+
+.header-txt h1 {
+    font-size: 90px;
+    text-transform: uppercase;
+    line-height: 1;
+    color: #111111;
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 15px;
+}
+
+.header-txt p {
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.btn-1 {
+    display: inline-block;
+    padding: 11px 25px;
+    background-color: #111111;
+    color: #ffffffff;
+    border-radius: 5px;
+
+}
+
+.btn-2 {
+    display: inline-block;
+    padding: 7px 10px;
+    background-color: #111111;
+    color: #ffffffff;
+    border-radius: 5px;
+    font-size: 15px;
+}
